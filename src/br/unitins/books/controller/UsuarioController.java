@@ -50,10 +50,13 @@ private static final long serialVersionUID = -563227102506849534L;
 		usuario = null;
 	}
 	public void editar(Usuario user) {
-		this.setUsuario(user);
+		//clona o objeto user e modifica o objeto usuario
+		//tal alteração não pega o endereço de memória, logo não será replicado dentro da lista
+		//gera um novo endereço de memória e o preenche com o conteudo da referencia de user
+		this.setUsuario((Usuario) user.getClone());
+		
 	}
 	
 	public void alterar() {
-		
 	}
 }
